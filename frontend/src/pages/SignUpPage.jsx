@@ -6,7 +6,7 @@ export default function SignUpPage() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	const { authUser, error, signup, isSigningUp } = useAuthStore();
+	const { isAuthUser, error, signup, isSigningUp } = useAuthStore();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -32,7 +32,7 @@ export default function SignUpPage() {
 							<input className="form-control" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
 							<small className="text-danger {error?.password && ms-2}">{error?.password}</small>
 						</div>
-						{authUser && <div className="alert alert-success text-center">Registration successful</div>}
+						{isAuthUser && <div className="alert alert-success text-center">Registration successful</div>}
 						{
 							isSigningUp ? <button type="submit" className="btn btn-info mx-auto d-block"><i className="fa-solid fa-spinner fa-spin" /> Please wait...</button>
 										: <button type="submit" className="btn btn-info mx-auto d-block">Sign up</button>

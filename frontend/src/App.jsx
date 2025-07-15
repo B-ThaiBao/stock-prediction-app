@@ -6,8 +6,16 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
+import { useEffect } from 'react';
+
+import useAuthStore from './features/auth';
 
 function App() {
+	const { checkToken } = useAuthStore();
+	useEffect(() => {
+		checkToken();
+	}, [])
+
 	return (
 		<>
 			<BrowserRouter>

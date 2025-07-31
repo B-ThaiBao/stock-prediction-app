@@ -10,8 +10,12 @@ export default function NavBar() {
 				<Link className="navbar-brand" to="/">Stock Prediction App</Link>
 				<div>
 					{
-						hasToken ? <Link className="btn btn-info" onClick={logout}>Logout</Link>
-							: (
+						hasToken ? (
+							<>
+								<Link className="btn btn-outline-info me-2" to="/dashboard">Dashboard</Link>
+								<Link className="btn btn-info" onClick={logout}>Logout</Link>
+							</>
+						) : (
 								<>
 									<Link className="btn btn-outline-info me-2" to="/login">Login</Link>
 									<Link className="btn btn-info" to="/signup">Sign up</Link>
